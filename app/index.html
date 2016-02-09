@@ -1,31 +1,69 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="app">
+<html ng-app="myapp">
+
 <head>
-    <title>Jira toolManager</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
-    <!-- build:css assets/css/app.css -->
-    <link rel="stylesheet" href="../bower_components/angular-material/angular-material.css" />
-    <link rel="stylesheet" href="assets/css/style.css" />
-    <!-- endbuild -->
+  <meta charset="utf-8" />
+  <title>AngularJS Plunker</title>
+  <script>
+    document.write('<base href="' + document.location + '" />');
+  </script>
+
+  <!-- Bootstrap 3 -->
+  <!--<script data-require="jquery@2.1.1" data-semver="2.1.1" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>-->
+  <link data-require="bootstrap@*" data-semver="3.2.0" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.css" />
+  <link data-require="bootstrap-css@~3.1.1" data-semver="3.1.1" rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
+  <!--<script data-require="bootstrap@*" data-semver="3.2.0" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.js"></script>-->
+
+  <!-- Angular -->
+  <script data-require="angular.js@~1.4.0-beta.5" data-semver="1.4.0-beta.5" src="https://code.angularjs.org/1.4.0-beta.5/angular.js"></script>
+  <script src="scripts/router.es5.js"></script>
+  
+  <!-- App -->
+  <!-- order is irrelevant after app.js -->
+  <script src="scripts/app.js"></script>
+  <script src="scripts/AppController.js"></script>
+  <script src="scripts/HeaderController.js"></script>
+
+  <!-- home -->
+  <script src="scripts/home.js"></script>
+  <script src="scripts/HomeController.js"></script>
+
+  <!-- users -->
+  <!-- now dependencies before users -->
+  <!-- details -->
+  <script src="scripts/details.js"></script>
+  <script src="scripts/DetailsController.js"></script>
+  
+  <script src="scripts/users.js"></script>
+  <script src="scripts/UsersController.js"></script>
+  <script src="scripts/UsersService.js"></script>
+  
+  <link rel="stylesheet" href="scripts/style.css" />
 </head>
-<body>
-    <ng-view></ng-view>
-    <!-- build:js scripts/vendor.js -->
-    <script src="../bower_components/angular/angular.js"></script>
-    <script src="../bower_components/angular-route/angular-route.js"></script>
-    <script src="../bower_components/angular-animate/angular-animate.js"></script>
-    <script src="../bower_components/angular-aria/angular-aria.js"></script>
-    <script src="../bower_components/angular-material/angular-material.js"></script>
-    <!-- endbuild -->
-    <!-- build:app scripts/app.js -->
-    <script src="./scripts/app.js"></script>
-    <script src="./scripts/settings/settingsService.js"></script>
-    <script src="./scripts/settings/settingsController.js"></script>
-    <script src="./scripts/jira/jiraService.js"></script>
-    <script src="./scripts/jira/jiraController.js"></script>
-    <!-- endbuild -->
+
+<body ng-controller="AppController as app">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" ng-link="home">Logo</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" ng-controller="HeaderController as header">
+        <ul class="nav navbar-nav">
+          <li ng-class="{ active: header.isActive('/home')}"><a ng-link="home">Home</a>
+          </li>
+          <li ng-class="{ active: header.isActive('/users')}"><a ng-link="details({})">Users</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div ng-viewport class="container-fluid slide"></div>
 </body>
+
 </html>
