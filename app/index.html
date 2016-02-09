@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <title>Jira toolManager</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <!-- build:css assets/css/app.css -->
+    <link rel="stylesheet" href="../bower_components/angular-material/angular-material.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <!-- endbuild -->
+</head>
+<body>
+    <ng-view></ng-view>
+    <!-- build:js scripts/vendor.js -->
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/angular-route/angular-route.js"></script>
+    <script src="../bower_components/angular-animate/angular-animate.js"></script>
+    <script src="../bower_components/angular-aria/angular-aria.js"></script>
+    <script src="../bower_components/angular-material/angular-material.js"></script>
+    <!-- endbuild -->
+    <!-- build:app scripts/app.js -->
+    <script src="./scripts/app.js"></script>
+    <script src="./scripts/settings/settingsService.js"></script>
+    <script src="./scripts/settings/settingsController.js"></script>
+    <script src="./scripts/jira/jiraService.js"></script>
+    <script src="./scripts/jira/jiraController.js"></script>
+    <!-- endbuild -->
+</body>
+</html>
