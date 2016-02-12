@@ -1,9 +1,4 @@
-.md-button.md-icon-button {
-    margin: 0 0.6rem;
-    height: 1.6rem;
-    min-width: 0;
-    line-height: 1.6rem;
-    padding-left: 0;
-    padding-right: 0;
-    width: 1.6rem;
+.user-details {
+  background-color: #eee;
+  padding: 10px;
 }

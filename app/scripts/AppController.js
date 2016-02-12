@@ -19,6 +19,7 @@ function Controller($router, $location) {
   $router.config([
     { path: '/home', component: 'home' },
     { path: '/users', component: 'users' },
+    { path: '/settings', component: 'settings' },
     { path: '/', redirectTo: '/home' }
   ]);
   console.log("Force default route to /");

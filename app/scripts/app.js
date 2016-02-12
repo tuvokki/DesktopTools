@@ -2,15 +2,21 @@ angular
   .module('myapp', [
     'ngNewRouter',
     'myapp.home',
-    'myapp.users'
+    'myapp.settings',
+    'myapp.users',
+    'myapp.config'
   ])
 
-.config(function ($componentLoaderProvider) {
+.config(['$componentLoaderProvider', 'myapp.config', function ($componentLoaderProvider, config) {
   // change default template location
   //   from : ./components/my-widget/my-widget.html
   //   to:    ./my-widget.tpl.html
   $componentLoaderProvider.setTemplateMapping(function (name) {
     // name is component name
-    return 'scripts/' + name + '.tpl.html';
+    if (config.electron) {
+      return 'scripts' + '/' + name + '/' + name + '.tpl.html';
+    } else {
+      return '/app/scripts' + '/' + name + '/' + name + '.tpl.html';
+    }
   });
-});
+}]);
